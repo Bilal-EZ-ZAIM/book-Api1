@@ -10,7 +10,7 @@ const initialState = {
 // Fetch books
 export const getData = createAsyncThunk("book/getData", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/api/book");
+    const res = await fetch("https://book-rest-api-1.onrender.com/api/book");
     if (!res.ok) {
       throw new Error("Network response was not ok");
     }
@@ -26,7 +26,7 @@ export const insertData = createAsyncThunk(
   "book/insertData",
   async (bookData, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:4000/api/book", {
+      const res = await fetch("https://book-rest-api-1.onrender.com/api/book", {
         method: "POST",
         body: JSON.stringify(bookData),
         headers: {
@@ -49,7 +49,7 @@ export const deleteBook = createAsyncThunk(
   "book/deleteBook",
   async (id, thunkAPI) => {
     try {
-      await fetch(`http://localhost:4000/api/book/${id}`, {
+      await fetch(`https://book-rest-api-1.onrender.com/api/book/${id}`, {
         method: "DELETE",
       });
       return id;
@@ -66,7 +66,7 @@ export const updateBook = createAsyncThunk(
     console.log(updatedBook);
     console.log("id = " + id);
     try {
-      const res = await fetch(`http://localhost:4000/api/book/${id}`, {
+      const res = await fetch(`https://book-rest-api-1.onrender.com/api/book/${id}`, {
         method: "PUT",
         body: JSON.stringify(updatedBook),
         headers: {
