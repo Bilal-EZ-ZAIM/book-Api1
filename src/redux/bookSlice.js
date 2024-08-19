@@ -10,7 +10,7 @@ const initialState = {
 // Fetch books
 export const getData = createAsyncThunk("book/getData", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/api/book");
+    const res = await fetch("https://book-rest-api-1.onrender.com/api/book");
     if (!res.ok) {
       throw new Error("Network response was not ok");
     }
